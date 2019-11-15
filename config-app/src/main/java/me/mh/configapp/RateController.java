@@ -1,12 +1,14 @@
 package me.mh.configapp;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 // 3.3 - set up the controller and the html template
 @Controller
+@RefreshScope // 3.4.2 - added refresh scope
 public class RateController {
 	
 	@Value("${rate}")
