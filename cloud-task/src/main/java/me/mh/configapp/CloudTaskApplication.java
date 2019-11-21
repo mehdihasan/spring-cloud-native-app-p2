@@ -14,6 +14,7 @@ public class CloudTaskApplication {
 		SpringApplication.run(CloudTaskApplication.class, args);
 	}
 	
+	// 4.3
 	@Bean
 	public TollProcessingTask tollProcessingTask() {
 		return new TollProcessingTask();
@@ -21,7 +22,7 @@ public class CloudTaskApplication {
 	
 
 	/**
-	 * 
+	 * 4.2
 	 * @author admin
 	 * need to implement CommandLineRunner or ApplicationRunner
 	 * here we are implementing CommandLineRunner
@@ -33,10 +34,15 @@ public class CloudTaskApplication {
 			// parameters stationid, license plate, timestamp
 			if (null != args) {
 				System.out.println("total item: " + args.length);
-				if (args.length >= 3) {
-					System.out.println("station ID: " + args[0]);
-					System.out.println("license plate: " + args[1]);
-					System.out.println("timestamp: " + args[2]);	
+				if (args.length >= 4) {
+					
+					String stationId = args[1];
+					String licensePlateNumber = args[2];
+					String timeStamp = args[3];
+					
+					System.out.println("station ID: " + stationId);
+					System.out.println("license plate: " + licensePlateNumber);
+					System.out.println("timestamp: " + timeStamp);	
 				}
 			}
 		}
