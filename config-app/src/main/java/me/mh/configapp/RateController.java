@@ -20,6 +20,9 @@ public class RateController {
 	@Value("${tollstart}")
 	String tollStart;
 	
+	@Value("${connstring}")
+	String connString;
+	
 	
 	@RequestMapping("/rate")
 	public String getRate(Model model) {
@@ -27,6 +30,7 @@ public class RateController {
 		model.addAttribute("rateamount", rate);
 		model.addAttribute("lanes", laneCount);
 		model.addAttribute("tollstart", tollStart);
+		model.addAttribute("connstring", connString);
 		
 		return "rateview";
 	}

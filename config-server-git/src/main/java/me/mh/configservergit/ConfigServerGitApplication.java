@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@EnableWebSecurity
 @SpringBootApplication
 @EnableConfigServer // 2.1
 public class ConfigServerGitApplication extends WebSecurityConfigurerAdapter {
