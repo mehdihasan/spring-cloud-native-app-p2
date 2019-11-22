@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>me.mh</groupId>
-	<artifactId>config-app</artifactId>
+	<artifactId>cloud-tasksink</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>config-app</name>
-	<description>Spring Cloud Config App</description>
+	<name>cloud-tasksink</name>
+	<description>Spring Cloud Task Sink: an app to raise up the serverless app</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -21,29 +21,14 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-task</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-		</dependency>
+	        <groupId>org.springframework.cloud</groupId>
+	        <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+	    </dependency>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -55,6 +40,19 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+	    
+		<!-- 5.1 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-deployer-local</artifactId>
+			<version>2.1.0.RELEASE</version>
+			<exclusions>
+	            <exclusion>
+	                <groupId>org.springframework</groupId>
+	                <artifactId>spring-core</artifactId>
+	            </exclusion>
+	        </exclusions>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -62,7 +60,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
+				<version>Hoxton.RC1</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

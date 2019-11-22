@@ -1,4 +1,4 @@
-package me.mh.configapp;
+package me.mh.task;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,11 +34,11 @@ public class CloudTaskApplication {
 			// parameters stationid, license plate, timestamp
 			if (null != args) {
 				System.out.println("total item: " + args.length);
-				if (args.length >= 4) {
+				if (args.length >= 3) {
 					
-					String stationId = args[1];
-					String licensePlateNumber = args[2];
-					String timeStamp = args[3];
+					String stationId = args[0];
+					String licensePlateNumber = args[1];
+					String timeStamp = args[2];
 					
 					System.out.println("station ID: " + stationId);
 					System.out.println("license plate: " + licensePlateNumber);
