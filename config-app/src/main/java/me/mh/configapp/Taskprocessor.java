@@ -17,7 +17,8 @@ import org.springframework.stereotype.Component;
 @EnableBinding(Source.class)
 public class Taskprocessor {
 
-	// @Value("${}")
+	@Value("${task.repo}")
+	String repoUri;
 	
 	// this is the rabbitmq item
 	@Autowired
@@ -30,12 +31,11 @@ public class Taskprocessor {
 	 */
 	public void publishRequest(String payload, String applicationName) {
 		
-		// TODO: get the value from the config server
-		String url = "maven://me.mh:cloud-task:jar:0.0.1-SNAPSHOT";
+		// String url = "maven://me.mh:cloud-task:jar:0.0.1-SNAPSHOT";
 		
 		List<String> input = new ArrayList<String>(Arrays.asList(payload.split(",")));
 		
-		TaskLaunchRequest taskRequest = new TaskLaunchRequest(url, input, null, null, applicationName);
+		TaskLaunchRequest taskRequest = new TaskLaunchRequest(repoUri, input, null, null, applicationName);
 		
 		System.out.println("Created task request");
 		
